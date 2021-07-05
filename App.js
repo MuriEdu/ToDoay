@@ -46,7 +46,7 @@ export default function App() {
     }
   }
 
-  let verifyLocalStorage = null
+  let verifyLocalStorage = undefined
 
   const getLocalStorage = async () => {
     try {
@@ -63,7 +63,7 @@ export default function App() {
   }
 
   const format = () => {
-    if (verifyLocalStorage === null) {
+    if (verifyLocalStorage === undefined) {
       verifyLocalStorage = ['']
     }
     else {
