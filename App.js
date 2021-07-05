@@ -51,7 +51,7 @@ export default function App() {
   const getLocalStorage = async () => {
     try {
       
-      verifyLocalStorage = await AsyncStorage.getItem("@TASKS")
+       verifyLocalStorage = await AsyncStorage.getItem("@TASKS")
 
         const tasksFormated = format()
         const loadedTasks = tasksFormated.split(',')
@@ -63,10 +63,15 @@ export default function App() {
   }
 
   const format = () => {
-    const formatting1 = verifyLocalStorage.replace('[', '')
-    const formatting2 = formatting1.replace(']', '')
-    const formatting3 = formatting2.replace(/"/g, '')
-    return formatting3
+    if (verifyLocalStorage === null) {
+      verifyLocalStorage = ['']
+    }
+    else {
+      const formatting1 = verifyLocalStorage.replace('[', '')
+      const formatting2 = formatting1.replace(']', '')
+      const formatting3 = formatting2.replace(/"/g, '')
+      return formatting3
+    }
   }
 
   return (
