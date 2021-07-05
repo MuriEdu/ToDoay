@@ -10,10 +10,11 @@
         
 ### 🆕 New features and improvements
                           
-- [x] Improve how the tasks are generate
-- [] Improve fuction *getLocalStorage*
-- [] Add scroll in the tasks
-- [] Add complete tasks button
+- [x] Save tasks in Local Storage
+- [ ] Improve how the tasks are generate
+- [ ] Improve fuction *getLocalStorage*
+- [ ] Add scroll in the tasks
+- [ ] Add complete tasks button
                               
 ### 💻 Technologies and libraries used
                               
