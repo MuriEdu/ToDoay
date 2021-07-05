@@ -10,7 +10,7 @@
         
 ### 🆕 New features and improvements
                           
-- [] Improve how the tasks are generate
+- [x] Improve how the tasks are generate
 - [] Improve fuction *getLocalStorage*
 - [] Add scroll in the tasks
 - [] Add complete tasks button
