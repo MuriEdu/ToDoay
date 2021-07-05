@@ -63,7 +63,7 @@ export default function App() {
   }
 
   const format = () => {
-    if (verifyLocalStorage === undefined) {
+    if (verifyLocalStorage === undefined || verifyLocalStorage === null) {
       verifyLocalStorage = ['']
     }
     else {
