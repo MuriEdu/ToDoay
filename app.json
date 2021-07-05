@@ -2,13 +2,16 @@
   "expo": {
     "name": "ToDoay",
     "slug": "ToDoay",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon1.png",
+    "platforms": [
+      "android"
+    ],
     "splash": {
-      "image": "./assets/splah1.png",
+      "image": "./assets/splash1.png",
       "resizeMode": "contain",
-      "backgroundColor": "#549094'"
+      "backgroundColor": "#078DFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -16,14 +19,14 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
+  
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptative-icon1.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.muridev.ToDoay",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

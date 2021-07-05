@@ -17,7 +17,7 @@ export default function AddTask({onSave}) {
                 onSave(taskValue);
                 setTaskValue('')
                 }}>
-                <AppText>New Task</AppText>
+                <AppText>Save Task</AppText>
             </ButtonAddTask>
         </View>
     )

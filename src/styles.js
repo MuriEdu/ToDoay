@@ -52,11 +52,11 @@ export const Task = styled.View`
     justify-content: center;
     background-color: #C9E6CF;
     width: 250px;
-    height: 25px;
+    min-height: 25px;
     border-radius: 15px;
     padding: 10px;
     margin-left: 14px;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
 `
 
 export const TaskGroup = styled.View`
