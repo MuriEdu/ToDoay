@@ -55,7 +55,7 @@ export default function App() {
        const check = typeof verifyLocalStorage
 
        if (check === 'object') {
-         Alert.alert('Welcome','Thanks for downloading ToDay')
+         Alert.alert('Welcome','Thanks for downloading ToDoay')
          return 0
        }
 
