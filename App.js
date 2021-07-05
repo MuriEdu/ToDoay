@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, TouchableOpacity, Text } from 'react-native';
 import { Title } from './src/styles';
 import AddTask from './src/components/AddTask';
 import TaskList from './src/components/TaksList';
@@ -52,6 +52,12 @@ export default function App() {
     try {
       
        verifyLocalStorage = await AsyncStorage.getItem("@TASKS")
+       const check = typeof verifyLocalStorage
+
+       if (check === 'object') {
+         Alert.alert('Welcome','Thanks for downloading ToDay')
+         return 0
+       }
 
         const tasksFormated = format()
         const loadedTasks = tasksFormated.split(',')
