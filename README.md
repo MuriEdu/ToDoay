@@ -13,7 +13,7 @@
 - [x] Save tasks in Local Storage
 - [ ] Improve how the tasks are generate
 - [ ] Improve fuction *getLocalStorage*
-- [ ] Add scroll in the tasks
+- [ ] Add scroll in the tasks list
 - [ ] Add complete tasks button
                               
 ### 💻 Technologies and libraries used
