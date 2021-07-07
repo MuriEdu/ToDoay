@@ -6,7 +6,7 @@
   <img src="https://github.com/MuriEdu/ToDoay/blob/main/assets/SmartSelect_20210707-103753_Video Player.gif" width="270" height="480" />
 </div>
                               
-> A simple ToDo app, with two buttons that you can *save new task* or *delete existing task*
+> A simple ToDo app, that tou can add task, pressing *Save Task* button, complete task *swiping to left*, and delete task, pressing *delete task button*
         
 ### 🆕 New features and improvements
                           
