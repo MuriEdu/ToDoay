@@ -23,6 +23,7 @@
 - React-Native
 - Expo
 - Styled-Components
+- react-native-gesture-handler
                               
 ### 📲 Install in your Android
                               
