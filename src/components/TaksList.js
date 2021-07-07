@@ -3,13 +3,13 @@ import { FlatList } from 'react-native';
 import { Scroll } from '../styles';
 import FullTask from './FullTask';
 
-export default function TaskList({tasks, toggleComplete, delTask, local}) {
+export default function TaskList({tasks, toggleComplete, delTask}) {
 
     return(
         <Scroll>
             <FlatList 
                 data={tasks}
-                keyExtractor={ item => item.task }
+                keyExtractor={ item => item.id }
                 renderItem={({ item }) => {
                     return(
                         <FullTask 

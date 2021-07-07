@@ -12,12 +12,20 @@ export default function App() {
   }, [])
 
   const [tasks, setTasks] = useState([])
+
+  function generateId() {
+    const id = Math.random()
+    return id
+  }
   
   const saveTask = (task) => {
+
+    const newId = generateId()
 
     const objTask = {
       task,
       complete: false,
+      id: newId
     }
 
     if(task.trim()) {
@@ -62,6 +70,14 @@ export default function App() {
 
       if (verifyLocalStorage === null) {
         Alert.alert('Welcome','Thanks for downloading ToDoay')
+        Alert.alert('How use ToDoay:', `
+          -> Add new Task: 
+              press "Save Task" button
+          -> Complete Task: 
+              Swipe task to Left
+          -> Delete Task: 
+              Press delete button
+        `)
       }
       else {
         setTasks(loadedTasks)
@@ -76,17 +92,11 @@ export default function App() {
     <View >
       <Title>To Doay</Title>
       <AddTask onSave={saveTask}/>
-      <TouchableOpacity
-        onPress={() => {AsyncStorage.removeItem('@TASKS')}}
-      >
-        <Text>DELETE LOCAL</Text>
-      </TouchableOpacity>
       <TaskList 
         toggleComplete={toggleComplete}
         tasks={tasks}
         delTask={delTask}
       />
-     
     </View>
   );
 }

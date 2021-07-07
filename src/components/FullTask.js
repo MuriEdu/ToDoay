@@ -7,32 +7,14 @@ import { AppText, List, Task, TaskGroup, ButtonDeleteTask, FinishSwipe, FinishTx
 
 export default function FullTask({ item, arr, toggleComplete, delTask}) {
 
-    function leftActions(progress, dragX) {
-
-        const scale = dragX.interpolate({
-            inputRange:[0, 100],
-            outputRange:[0, 1],
-            extrapolate: 'clamp'
-        })
+    function rightActions() {
 
         return(
-            <FinishSwipe>
-                <Animated.View  style={[{ transform: [{ scale: scale }]}, {
-                    backgroundColor: '#A0FF98',
-                    borderRadius: 15,
-                    width: 100,
-                    height: 37,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    }]}>
-                    <TouchableOpacity
-                    
-                    >
-                        <Text>finish</Text>
-                    </TouchableOpacity>
-                </Animated.View>
-            </FinishSwipe>
+            <View>
+                <Text>.</Text>
+            </View>
         )
+        
     }
 
     const completeTask = () => {
@@ -51,8 +33,8 @@ export default function FullTask({ item, arr, toggleComplete, delTask}) {
 
     return(
         <Swipeable
-            renderLeftActions={leftActions}
-            onSwipeableLeftWillOpen={toggleComplete}
+            renderRightActions={rightActions}
+            onSwipeableRightWillOpen={toggleComplete}
         >
             <List>
                 <TaskGroup>
