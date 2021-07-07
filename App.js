@@ -12,12 +12,12 @@ export default function App() {
   }, [])
 
   const [tasks, setTasks] = useState([])
-
+  
   const saveTask = (task) => {
 
     const objTask = {
       task,
-      complete: false
+      complete: false,
     }
 
     if(task.trim()) {
@@ -69,14 +69,15 @@ export default function App() {
     <View >
       <Title>To Doay</Title>
       <AddTask onSave={saveTask}/>
-      <TaskList tasks={tasks}
-        delTask={delTask}
-      />
       <TouchableOpacity
         onPress={() => {AsyncStorage.removeItem('@TASKS')}}
       >
         <Text>DELETE LOCAL</Text>
       </TouchableOpacity>
+      <TaskList tasks={tasks}
+        delTask={delTask}
+      />
+     
     </View>
   );
 }

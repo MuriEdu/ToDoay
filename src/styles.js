@@ -27,6 +27,7 @@ export const ButtonAddTask = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     margin-top: 12px;
+    margin-bottom: 10px;
     background-color: #BDC7E4;
     width: 276px;
     height: 30px;
@@ -56,10 +57,24 @@ export const Task = styled.View`
     border-radius: 15px;
     padding: 10px;
     margin-left: 14px;
-    margin-bottom: 15px;
 `
 
 export const TaskGroup = styled.View`
+    margin-top: -15px;
     justify-content: center;
     flex-direction: row;
+`
+
+export const Scroll = styled.ScrollView`
+    height: 650px;
+`
+
+export const FinishSwipe = styled.View`
+    border-radius: 15px;
+    margin-left: 25px;
+    margin-top: 21px;
+    width: 100px;
+    height: 37px;
+    justify-content: center;
+    align-items: center;
 `

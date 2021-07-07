@@ -1,24 +1,23 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import DeletTask from './DeleteTask';
-import { AppText, List, Task, TaskGroup } from '../styles';
+import { FlatList } from 'react-native';
+import { Scroll } from '../styles';
+import FullTask from './FullTask';
 
-export default function TaskList({tasks, delTask}) {
+export default function TaskList({tasks, toggleComplete}) {
 
     return(
-       <List>
-            {tasks.map((value, index) => {
-                return (
-                    <TaskGroup key={index}>
-                        <DeletTask
-                            delFunction={delTask}
-                            delIndex={index}
-                        />
-                        <Task>
-                            <AppText>{value.task}</AppText>
-                        </Task>
-                    </TaskGroup>
-            )})}
-       </List>
+        <Scroll>
+            <FlatList 
+                data={tasks}
+                keyExtractor={ item => item.task }
+                renderItem={({ item }) => {
+                    return(
+                        <FullTask 
+                        item={item}
+                        toggleComplete={toggleComplete}/>
+                        )
+                    }}
+                />
+        </Scroll>
     )
 }
