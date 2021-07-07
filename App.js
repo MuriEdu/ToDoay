@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Alert, TouchableOpacity, Text} from 'react-native';
-import { Title } from './src/styles';
+import { AppText, Title } from './src/styles';
 import AddTask from './src/components/AddTask';
 import TaskList from './src/components/TaksList';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -33,6 +33,13 @@ export default function App() {
     updatedTask.splice(index, 1)
     setTasks(updatedTask)
     setLocalStorage(updatedTask)
+  }
+
+  const toggleComplete = index => {
+    const arrToggle = [...tasks]
+    arrToggle[index].complete = !arrToggle[index].complete
+    setTasks(arrToggle)
+    setLocalStorage(arrToggle)
   }
 
   const setLocalStorage = async (newTask) => {
@@ -74,7 +81,9 @@ export default function App() {
       >
         <Text>DELETE LOCAL</Text>
       </TouchableOpacity>
-      <TaskList tasks={tasks}
+      <TaskList 
+        toggleComplete={toggleComplete}
+        tasks={tasks}
         delTask={delTask}
       />
      

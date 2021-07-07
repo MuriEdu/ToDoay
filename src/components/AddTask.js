@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { View, Keyboard } from 'react-native';
 import { AppText, ButtonAddTask, InputTasks } from '../styles';
 
 export default function AddTask({onSave}) {
@@ -16,6 +16,7 @@ export default function AddTask({onSave}) {
             <ButtonAddTask onPress={() => {
                 onSave(taskValue);
                 setTaskValue('')
+                Keyboard.dismiss()
                 }}>
                 <AppText>Save Task</AppText>
             </ButtonAddTask>

@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import { Scroll } from '../styles';
 import FullTask from './FullTask';
 
-export default function TaskList({tasks, toggleComplete}) {
+export default function TaskList({tasks, toggleComplete, delTask, local}) {
 
     return(
         <Scroll>
@@ -13,8 +13,10 @@ export default function TaskList({tasks, toggleComplete}) {
                 renderItem={({ item }) => {
                     return(
                         <FullTask 
+                        arr={tasks}
                         item={item}
-                        toggleComplete={toggleComplete}/>
+                        delTask={delTask}
+                        toggleComplete={() => {toggleComplete(tasks.indexOf(item))}}/>
                         )
                     }}
                 />

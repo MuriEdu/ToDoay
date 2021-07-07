@@ -1,10 +1,11 @@
-import React from 'react';
-import { Text, View, Animated, StyleSheet } from 'react-native';
+import React, { useRef } from 'react';
+import { Text, View, Animated, StyleSheet, TouchableOpacity } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import styled from 'styled-components';
+import DeleteTask from './DeleteTask';
 import { AppText, List, Task, TaskGroup, ButtonDeleteTask, FinishSwipe, FinishTxt } from '../styles';
 
-export default function FullTask({ item, toggleComplete }) {
+export default function FullTask({ item, arr, toggleComplete, delTask}) {
 
     function leftActions(progress, dragX) {
 
@@ -24,24 +25,44 @@ export default function FullTask({ item, toggleComplete }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     }]}>
-                    <Text>finish</Text>
+                    <TouchableOpacity
+                    
+                    >
+                        <Text>finish</Text>
+                    </TouchableOpacity>
                 </Animated.View>
             </FinishSwipe>
         )
     }
 
+    const completeTask = () => {
+        if(item.complete) {
+
+            return(
+                <AppText style={{textDecorationLine: 'line-through', color: '#B2B2B2'}}>{item.task}</AppText>
+            )
+        }
+        else {
+            return(
+                <AppText>{item.task}</AppText>
+            )
+        }
+    }
+
     return(
         <Swipeable
             renderLeftActions={leftActions}
-            onSwipeableLeftOpen={toggleComplete}
+            onSwipeableLeftWillOpen={toggleComplete}
         >
             <List>
                 <TaskGroup>
-                    <ButtonDeleteTask>
-                        <Text>X</Text>
-                    </ButtonDeleteTask>
+                    <DeleteTask 
+                        item={item}
+                        tasks={arr}   
+                        delTask={delTask} 
+                    />
                     <Task>
-                        <AppText>{item.task}</AppText>
+                        {completeTask()}
                     </Task>
                 </TaskGroup>
             </List>

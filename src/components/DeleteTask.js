@@ -2,10 +2,10 @@ import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import { ButtonDeleteTask } from '../styles';
 
-export default function DeletTask({ delFunction, delIndex }) {
+export default function DeletTask({ tasks, item, delTask }) {
     return(
         <ButtonDeleteTask
-            onPress={() => {delFunction(delIndex)}}
+            onPress={() => {delTask(tasks.indexOf(item))}}
         >
             <Text>X</Text>
         </ButtonDeleteTask>
