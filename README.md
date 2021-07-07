@@ -15,7 +15,6 @@
 - [x] Improve fuction *getLocalStorage*
 - [x] Add scroll in the tasks list
 - [x] Add complete task feature
-- [ ] Add complete tasks button
                               
 ### 💻 Technologies and libraries used
                               
