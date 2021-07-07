@@ -15,7 +15,7 @@ export default function TaskList({tasks, delTask}) {
                             delIndex={index}
                         />
                         <Task>
-                            <AppText>{value}</AppText>
+                            <AppText>{value.task}</AppText>
                         </Task>
                     </TaskGroup>
             )})}

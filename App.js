@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Alert, TouchableOpacity, Text } from 'react-native';
+import { View, Alert, TouchableOpacity, Text} from 'react-native';
 import { Title } from './src/styles';
 import AddTask from './src/components/AddTask';
 import TaskList from './src/components/TaksList';
@@ -14,10 +14,18 @@ export default function App() {
   const [tasks, setTasks] = useState([])
 
   const saveTask = (task) => {
-    const newTask = [...tasks, task]
-    setTasks(newTask)
-    setLocalStorage(newTask)
-    console.log(task);
+
+    const objTask = {
+      task,
+      complete: false
+    }
+
+    if(task.trim()) {
+      const newTask = [...tasks, objTask]
+      setTasks(newTask)
+      setLocalStorage(newTask)
+    } else Alert.alert('Task not added', 'You cannot save a blank task')
+    
   }
 
   const delTask = (index) => {
@@ -26,15 +34,6 @@ export default function App() {
     setTasks(updatedTask)
     setLocalStorage(updatedTask)
   }
-
-  const checkSetTask = (tasks) => {
-    if (tasks[0] === '') {
-      return 0;
-    }
-    else {
-      setTasks(tasks)
-    }
-  } 
 
   const setLocalStorage = async (newTask) => {
     try {
@@ -46,37 +45,23 @@ export default function App() {
     }
   }
 
-  let verifyLocalStorage = undefined
+  let verifyLocalStorage = null
 
   const getLocalStorage = async () => {
     try {
       
-       verifyLocalStorage = await AsyncStorage.getItem("@TASKS")
-       const check = typeof verifyLocalStorage
+      verifyLocalStorage = await AsyncStorage.getItem("@TASKS")
+      const loadedTasks = JSON.parse(verifyLocalStorage)
 
-       if (check === 'object') {
-         Alert.alert('Welcome','Thanks for downloading ToDoay')
-         return 0
-       }
-
-        const tasksFormated = format()
-        const loadedTasks = tasksFormated.split(',')
-        checkSetTask(loadedTasks)
+      if (verifyLocalStorage === null) {
+        Alert.alert('Welcome','Thanks for downloading ToDoay')
+      }
+      else {
+        setTasks(loadedTasks)
+      }
 
     } catch (e) {
       alert(e)
-    }
-  }
-
-  const format = () => {
-    if (verifyLocalStorage === undefined || verifyLocalStorage === null) {
-      verifyLocalStorage = ['']
-    }
-    else {
-      const formatting1 = verifyLocalStorage.replace('[', '')
-      const formatting2 = formatting1.replace(']', '')
-      const formatting3 = formatting2.replace(/"/g, '')
-      return formatting3
     }
   }
 
@@ -87,6 +72,11 @@ export default function App() {
       <TaskList tasks={tasks}
         delTask={delTask}
       />
+      <TouchableOpacity
+        onPress={() => {AsyncStorage.removeItem('@TASKS')}}
+      >
+        <Text>DELETE LOCAL</Text>
+      </TouchableOpacity>
     </View>
   );
 }
