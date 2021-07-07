@@ -28,4 +28,4 @@
 ### 📲 Install in your Android
                               
 > - Go to [release](https://github.com/MuriEdu/ToDoay/releases/tag/1.2.3) in this GitHub repository
-> - [Download](https://github.com/MuriEdu/ToDoay/releases/tag/1.2.3) apk and run it on your Android
+> - [Download](https://github.com/MuriEdu/ToDoay/releases/download/1.2.3/ToDoay.-.1.2.3.apk) apk and run it on your Android
